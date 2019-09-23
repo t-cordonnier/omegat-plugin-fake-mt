@@ -9,13 +9,18 @@ This plugin let you add a custom remote Machine Translator. You can configure fo
 
 `GET ${url}?${source}=en-US&${target}=fr-FR&${text}=Hello World!` 
 
+New release, by Thomas Cordonnier, enables more generic support for any MT engine: the result can be either in XML or in JSON, 
+and you can specify which part of the result is returned to OmegaT:
+
+* if format is XML, you specify the part to be returned to the client using XPath
+* if format is JSON, you specify the part to be returned to the client using JsonPath (https://goessner.net/articles/JsonPath/)
+
 ## Caveat
 
 There are currently several limitations, for this plugin:
 
 * only one custom MT can be used,
 * the HTTP method used is always GET
-* the expected response is in JSON with the schema `{"translation": "Hello World!"}` 
 * When changing the name of the MT, the changes are effective after restarting the application
 
 ## Installation
